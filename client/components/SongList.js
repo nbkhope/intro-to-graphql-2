@@ -8,7 +8,7 @@ import Spinner from './Spinner';
 class SongList extends Component {
   renderItems() {
     return this.props.data.songs.map(song => (
-      <li className="collection-item">{song.title}</li>
+      <li key={song.id} className="collection-item">{song.title}</li>
     ));
   }
 
@@ -29,6 +29,7 @@ class SongList extends Component {
 const query = gql`
   {
     songs {
+      id
       title
     }
   }
