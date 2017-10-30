@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import gql from 'graphql-tag';
 // Integrates React with Apollo Client; used to make query
 import { graphql } from 'react-apollo';
+
+import query from '../queries/fetchSongs';
 
 import Spinner from './Spinner';
 
@@ -31,16 +32,6 @@ class SongList extends Component {
     );
   }
 }
-
-// Define the graphql query using gql helper
-const query = gql`
-  {
-    songs {
-      id
-      title
-    }
-  }
-`;
 
 // graphql(query) returns a function
 export default graphql(query)(SongList);
