@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link, hashHistory } from 'react-router';
 import gql from 'graphql-tag';
 import { graphql } from 'react-apollo';
 
@@ -30,6 +31,7 @@ class SongCreate extends Component {
       .then(response => {
         // response holds an object with a data property
         console.log('Song created successfully.', response);
+        hashHistory.push('/');
       })
       .catch(error => {
         console.log('Failed to create song', error);
@@ -40,6 +42,7 @@ class SongCreate extends Component {
     return (
       <div>
         <h2>Create Song</h2>
+        <Link to="/">Back</Link>
 
         <form onSubmit={this.onSubmit}>
           <label htmlFor="title">Title</label>
