@@ -1,9 +1,11 @@
 import React from 'react';
 
+import Header from './Header';
+
 const App = (props) => {
   return (
     <div className="container">
-      <h1>YouSong</h1>
+      <Header />
       {props.children}
     </div>
   );
