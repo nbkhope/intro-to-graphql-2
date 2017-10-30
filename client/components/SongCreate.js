@@ -20,6 +20,20 @@ class SongCreate extends Component {
 
   onSubmit(event) {
     event.preventDefault();
+    console.log('Submitting new song with title', this.state.title);
+
+    this.props.mutate({
+      variables: {
+        title: this.state.title,
+      }
+    })
+      .then(response => {
+        // response holds an object with a data property
+        console.log('Song created successfully.', response);
+      })
+      .catch(error => {
+        console.log('Failed to create song', error);
+      });
   }
 
   render() {
@@ -36,20 +50,20 @@ class SongCreate extends Component {
             value={this.state.title}
             onChange={this.onTitleChange}
           />
-          <button type="submit">Create</button>
+          <button type="submit" className="btn">Create</button>
         </form>
       </div>
     );
   }
 }
 
-// const mutation = gql`
-//   mutation {
-//     addSong(title: $title) {
-//       id
-//       title
-//     }
-//   }
-// `;
+const mutation = gql`
+  mutation AddSong($title: String) {
+    addSong(title: $title) {
+      id
+      title
+    }
+  }
+`;
 
-export default SongCreate;
+export default graphql(mutation)(SongCreate);
