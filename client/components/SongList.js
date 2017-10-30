@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 import gql from 'graphql-tag';
 // Integrates React with Apollo Client; used to make query
 import { graphql } from 'react-apollo';
@@ -18,9 +19,15 @@ class SongList extends Component {
     }
 
     return (
-      <ul className="collection">
-        {this.renderItems()}
-      </ul>
+      <div>
+        <ul className="collection">
+          {this.renderItems()}
+        </ul>
+
+        <Link to="/songs/new" className="btn-floating btn-large red right">
+          <i className="material-icons">add</i>
+        </Link>
+      </div>
     );
   }
 }
