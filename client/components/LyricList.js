@@ -15,7 +15,7 @@ class LyricList extends Component {
           id: lyricId,
           __typename: 'LyricType',
           // what we expect
-          likes: likes + 4,
+          likes: likes + 1,
         }
       }
     })
