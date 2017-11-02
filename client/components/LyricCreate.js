@@ -23,6 +23,8 @@ class LyricCreate extends Component {
     })
       .then(response => {
         console.log('Submitted lyric line successfully', response);
+
+        this.setState({ content: '' });
       });
   }
 
