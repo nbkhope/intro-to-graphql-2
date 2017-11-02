@@ -20,6 +20,9 @@ class LyricCreate extends Component {
         songId: this.props.songId,
         content: this.state.content,
       },
+      // optimisticResponse: {
+      //   __typename: 'LyricType',
+      // }
     })
       .then(response => {
         console.log('Submitted lyric line successfully', response);

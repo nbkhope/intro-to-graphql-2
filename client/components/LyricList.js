@@ -3,11 +3,20 @@ import gql from 'graphql-tag';
 import { graphql } from 'react-apollo';
 
 class LyricList extends Component {
-  onLikeClick(lyricId) {
+  onLikeClick(lyricId, likes) {
     console.log('Liking lyric...');
     this.props.mutate({
       variables: {
         id: lyricId
+      },
+      optimisticResponse: {
+        __typename: 'Mutation',
+        likeLyric: {
+          id: lyricId,
+          __typename: 'LyricType',
+          // what we expect
+          likes: likes + 4,
+        }
       }
     })
       .then(response => {
@@ -22,7 +31,7 @@ class LyricList extends Component {
           <p key={id}>
             {content}
             <span className="badge">
-              <button type="button" className="btn" onClick={() => this.onLikeClick(id)}>
+              <button type="button" className="btn" onClick={() => this.onLikeClick(id, likes)}>
                 {likes} <i className="material-icons right">thumb_up</i>
               </button>
             </span>
