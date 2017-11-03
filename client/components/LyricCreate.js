@@ -12,6 +12,7 @@ class LyricCreate extends Component {
   }
 
   onSubmit(event) {
+    console.log('onSubmit. song is', this.props.song);
     event.preventDefault();
     console.log('Submitting lyric line...', this.state.content);
 
@@ -20,9 +21,20 @@ class LyricCreate extends Component {
         songId: this.props.songId,
         content: this.state.content,
       },
-      // optimisticResponse: {
-      //   __typename: 'LyricType',
-      // }
+      optimisticResponse: {
+        __typename: 'Mutation',
+        addLyricToSong: {
+          id: this.props.songId,
+          title: this.props.song.title,
+          lyrics: this.props.song.lyrics.concat({
+            id: new Date().getTime() + Math.random(),
+            content: this.state.content, likes: 0,
+            __typename: 'LyricType'
+          }),
+          __typename: 'SongType',
+        }
+
+      }
     })
       .then(response => {
         console.log('Submitted lyric line successfully', response);

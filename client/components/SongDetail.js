@@ -24,7 +24,7 @@ class SongDetail extends Component {
         <strong>Title:</strong> {song.title}
         <div className="card-panel">
           <LyricList lyrics={song.lyrics} />
-          <LyricCreate songId={song.id} />
+          <LyricCreate songId={song.id} song={song} />
         </div>
       </div>
     );
