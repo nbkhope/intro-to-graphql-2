@@ -10,7 +10,7 @@
   "scripts": {
     "dev": "nodemon index.js --ignore client"
   },
-  "author": "",
+  "author": "nbkhope",
   "license": "MIT",
   "dependencies": {
     "nodemon": "*",
