@@ -1,7 +1,7 @@
 {
   "name": "yousong-graphql",
   "version": "1.0.0",
-  "description": "",
+  "description": "Make custom songs lyric by lyric",
   "main": "index.js",
   "repository": {
     "type": "git",
