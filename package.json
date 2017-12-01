@@ -32,14 +32,14 @@
   },
   "devDependencies": {
     "babel-core": "^6.22.1",
-    "babel-loader": "^6.2.10",
+    "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.1.8",
     "babel-preset-react": "^6.22.0",
     "css-loader": "^0.26.1",
     "html-webpack-plugin": "^2.26.0",
     "nodemon": "^1.12.1",
     "style-loader": "^0.13.1",
-    "webpack": "^2.2.0",
+    "webpack": "^3.9.1",
     "webpack-dev-middleware": "^1.9.0"
   }
 }
